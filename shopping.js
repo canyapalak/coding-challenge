@@ -131,8 +131,10 @@ class ProductMap {
         <h2>${product.name}</h2>
         <p>Price: ${product.price}</p>
         <p id="quantity-${index}">Quantity: ${product.quantity}</p>
-        <button class="add-to-cart-button" id="add-to-cart-button-${index}">Add To Cart</button>
-        <p id="out-of-stock"></p>
+<span id="button-and-text">
+          <button class="add-to-cart-button" id="add-to-cart-button-${index}">Add To Cart</button>
+          <p id="out-of-stock"></p>
+</span>
         </div>
       `;
       productsContainer.appendChild(oneProduct);
