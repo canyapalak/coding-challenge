@@ -1,0 +1,47 @@
+#main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#products {
+    display:flex;
+    flex-direction: row;
+}
+
+#product-div {
+    border: 2px solid darkslategray;
+    border-radius: 5px;
+    margin-right: 2vh;
+    padding: 1vh;
+    background-color:ivory;
+}
+
+#product-div img {
+    width: 30vh;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+#basket {
+    border: 2px dashed darkred;
+    border-radius: 5px;
+    margin-top: 2vh;
+    padding: 1vh;
+    background-color:ivory;
+}
+
+.add-to-cart-button {
+    height: 2rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color:gold
+}
+
+.add-to-cart-button:hover {
+    background-color:yellow;
+}
+
+#out-of-stock {
+    color: red;
+}
