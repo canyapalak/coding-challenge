@@ -49,7 +49,6 @@ class Basket {
       console.log("added new product: ", product);
     }
 
-    // update the quantity of other products in the basket
     this.products.forEach((p) => {
       if (p !== existingProduct) {
         p.quantity = p.quantity + p.inBasket - 1;
@@ -140,12 +139,14 @@ class ProductMap {
       oneProduct.innerHTML = `
       <div id="product-div"> 
         <img src="${product.imageUrl}" alt="${product.name}" />
-        <h2>${product.name}</h2>
+<span id="name-and-text">
+          <h2>${product.name}</h2>
+          <p class="out-of-stock" id="out-of-stock-${index}"></p>
+</span>
         <p>Price: ${product.price}</p>
         <p id="quantity-${index}">Quantity: ${product.quantity}</p>
         <span id="button-and-text">
           <button class="add-to-cart-button" id="add-to-cart-button-${index}">Add To Cart</button>
-          <p class="out-of-stock" id="out-of-stock-${index}"></p>
         </span>
         </div>
       `;

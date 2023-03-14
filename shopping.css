@@ -18,11 +18,11 @@ body {
     border-radius: 5px;
     margin-right: 2vh;
     padding: 1vh;
-    background-color:ivory;
+    background-color:gainsboro;
 }
 
 #product-div img {
-    width: 20vh;
+    width: 22vh;
     border: 1px solid gray;
     border-radius: 5px;
 }
@@ -31,7 +31,7 @@ body {
     border: 2px dashed gray;
     border-radius: 5px;
     padding: 1vh;
-    background-color:ivory;
+    background-color:cornsilk;
 }
 
 .add-to-cart-button {
@@ -47,9 +47,16 @@ body {
 
 .out-of-stock {
     color: red;
+    margin-left: 0.5rem;
 }
 
 .products-and-basket {
     display: flex;
     display: row;
+}
+
+#name-and-text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
