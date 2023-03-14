@@ -48,9 +48,16 @@ class Basket {
       this.products.push(product);
       console.log("added new product: ", product);
     }
+
+    // update the quantity of other products in the basket
+    this.products.forEach((p) => {
+      if (p !== existingProduct) {
+        p.quantity = p.quantity + p.inBasket - 1;
+      }
+    });
   }
 
-  reset() {
+  emptyBasket() {
     this.products = [];
     this.totalPrice = "";
   }
@@ -58,9 +65,9 @@ class Basket {
 
 const myProducts = [
   new Product("apples", 40, 40, 2, "apples.png"),
-  new Product("lemons", 32, 32, 38, "lemons.png"),
-  new Product("mangos", 44, 44, 67, "mangos.png"),
-  new Product("pineapples", 32, 32, 88, "pineapples.png"),
+  new Product("lemons", 32, 32, 18, "lemons.png"),
+  new Product("mangos", 44, 44, 27, "mangos.png"),
+  new Product("pineapples", 32, 32, 9, "pineapples.png"),
 ];
 
 window.onload = () => {
@@ -78,7 +85,7 @@ const addEvents = (products, basket) => {
       addProductToBasket(product, basket);
       if (product.quantity <= 0) {
         addToBasketButton.setAttribute("disabled", "true");
-        const outOfStockText = document.getElementById("out-of-stock");
+        const outOfStockText = document.getElementById(`out-of-stock-${index}`);
         outOfStockText.innerHTML = "Out of stock!";
       } else {
         addToBasketButton.removeAttribute("disabled");
@@ -98,7 +105,7 @@ const addProductToBasket = (product, basket) => {
 };
 
 const resetBasket = (basket) => {
-  basket.reset();
+  basket.emptyBasket();
   displayBasket(basket);
 };
 
@@ -108,11 +115,16 @@ const displayBasket = (basket) => {
     (product) => `<div>${product.name} (${product.inBasket})</div>`
   );
   basketProductsText.innerHTML = productHtmlStrings.join("<br>");
+
   const totalPriceText = document.getElementById("total-price");
-  const priceHtmlStrings = basket.products.map(
-    (product) => `<div>$${product.price}</div>`
-  );
-  totalPriceText.innerHTML = priceHtmlStrings.join("<br>");
+  const totalPrice = basket.products.reduce((acc, curr) => acc + curr.price, 0);
+  totalPriceText.innerHTML = `<div>$${totalPrice}</div>`;
+  const resetButton = document.getElementById("reset-button");
+  if (basket.products.length <= 0) {
+    resetButton.setAttribute("disabled", "true");
+  } else {
+    resetButton.removeAttribute("disabled");
+  }
 };
 
 class ProductMap {
@@ -131,10 +143,10 @@ class ProductMap {
         <h2>${product.name}</h2>
         <p>Price: ${product.price}</p>
         <p id="quantity-${index}">Quantity: ${product.quantity}</p>
-<span id="button-and-text">
+        <span id="button-and-text">
           <button class="add-to-cart-button" id="add-to-cart-button-${index}">Add To Cart</button>
-          <p id="out-of-stock"></p>
-</span>
+          <p class="out-of-stock" id="out-of-stock-${index}"></p>
+        </span>
         </div>
       `;
       productsContainer.appendChild(oneProduct);

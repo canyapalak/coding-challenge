@@ -1,3 +1,7 @@
+body {
+    background-color:rgb(147, 162, 123);
+}
+
 #main {
     display: flex;
     flex-direction: column;
@@ -18,15 +22,14 @@
 }
 
 #product-div img {
-    width: 30vh;
+    width: 20vh;
     border: 1px solid gray;
     border-radius: 5px;
 }
 
 #basket {
-    border: 2px dashed darkred;
+    border: 2px dashed gray;
     border-radius: 5px;
-    margin-top: 2vh;
     padding: 1vh;
     background-color:ivory;
 }
@@ -42,6 +45,11 @@
     background-color:yellow;
 }
 
-#out-of-stock {
+.out-of-stock {
     color: red;
+}
+
+.products-and-basket {
+    display: flex;
+    display: row;
 }
