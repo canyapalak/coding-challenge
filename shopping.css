@@ -1,5 +1,5 @@
 body {
-    background-color:rgb(147, 162, 123);
+    background: linear-gradient(to right, #c1e4b5, #495d3e);
 }
 
 #main {
@@ -18,7 +18,7 @@ body {
     border-radius: 5px;
     margin-right: 2vh;
     padding: 1vh;
-    background-color:gainsboro;
+    background: linear-gradient(to right, #dbdbd7, #f0f4e4);
 }
 
 #product-div img {
@@ -31,7 +31,7 @@ body {
     border: 2px dashed gray;
     border-radius: 5px;
     padding: 1vh;
-    background-color:cornsilk;
+    background: linear-gradient(to right, #dbcba7, #e1e1ab);
 }
 
 .add-to-cart-button {
